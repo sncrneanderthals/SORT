@@ -69,6 +69,9 @@ namespace SORT_doc_app.Controllers
                 GISReqs gisReqs = new GISReqs();
                 gisReqs.ProjectID = project.ID;
                 db.GISReqs.Add(gisReqs);
+                IAMReqs iamReqs = new IAMReqs();
+                iamReqs.ProjectID = project.ID;
+                db.IAMReqs.Add(iamReqs);
                 ITCS itcs = new ITCS();
                 itcs.ProjectID = project.ID;
                 db.ITCS.Add(itcs);

@@ -181,6 +181,7 @@
     <Compile Include="Models\DBAReqs.cs" />
     <Compile Include="Models\EOCReqs.cs" />
     <Compile Include="Models\GISReqs.cs" />
+    <Compile Include="Models\IAMReqs.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ITCS.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

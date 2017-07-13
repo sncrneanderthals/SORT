@@ -28,5 +28,23 @@ namespace SORT_doc_app.Models
                 Date = value;
             }
         }
+
+        public bool SummaryDone { get; set; }
+        public bool ServSpecDone { get; set; }
+        public bool EOCDone { get; set; }
+        public bool AppSupportDone { get; set; }
+        public bool ChangeManDone { get; set; }
+        public bool GISDone { get; set; }
+        public bool NEDone { get; set; }
+        public bool SCVDone { get; set; }
+        public bool SREDone { get; set; }
+        public bool DBADone { get; set; }
+        public bool QADone { get; set; }
+        public bool IAMDone { get; set; }
+        public bool PBXDone { get; set; }
+        public bool ITCSDone { get; set; }
+        public bool SMODone { get; set; }
+        public bool RisksDone { get; set; }
+        public bool SignOffDone { get; set; }
     }
 }

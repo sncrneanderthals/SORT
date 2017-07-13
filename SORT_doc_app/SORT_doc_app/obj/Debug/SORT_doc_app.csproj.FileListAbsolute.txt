@@ -135,3 +135,4 @@ C:\sncr_neanderthals\SORT_doc_app\SORT_doc_app\bin\Microsoft.Owin.Security.Twitt
 C:\sncr_neanderthals\SORT_doc_app\SORT_doc_app\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\sncr_neanderthals\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.dll
 C:\sncr_neanderthals\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.pdb
+C:\sncr_neanderthals\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.csprojResolveAssemblyReference.cache

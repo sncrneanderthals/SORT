@@ -20,6 +20,7 @@ namespace SORT_doc_app.Context
         public DbSet<DBAReqs> DBAReqs { get; set; }
         public DbSet<EOCReqs> EOCReqs { get; set; }
         public DbSet<GISReqs> GISReqs { get; set; }
+        public DbSet<IAMReqs> IAMReqs { get; set; }
         public DbSet<ITCS> ITCS { get; set; }
         public DbSet<NEReqs> NEReqs { get; set; }
         public DbSet<PBX> PBX { get; set; }
