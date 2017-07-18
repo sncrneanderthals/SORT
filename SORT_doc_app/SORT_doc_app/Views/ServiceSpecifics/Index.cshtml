@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SORT_doc_app.Models.ServiceSpecifics>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Links)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VPN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HostPlatform)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BackupRecovery)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotesAndGrid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Changes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GoLiveReqs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLAsSOW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LicensingAndHardware)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BCorDR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSComments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Links)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VPN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HostPlatform)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BackupRecovery)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotesAndGrid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Changes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoLiveReqs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SLAsSOW)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LicensingAndHardware)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BCorDR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSComments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

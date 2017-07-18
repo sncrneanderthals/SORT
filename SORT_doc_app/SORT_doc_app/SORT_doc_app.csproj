@@ -169,12 +169,42 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Context\SORT_doc_appContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppsSupportReqsController.cs" />
+    <Compile Include="Controllers\ChangeManagementReqsController.cs" />
+    <Compile Include="Controllers\DBAReqsController.cs" />
+    <Compile Include="Controllers\EOCReqsController.cs" />
+    <Compile Include="Controllers\GISReqsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IAMReqsController.cs" />
+    <Compile Include="Controllers\ITCSController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NEReqsController.cs" />
+    <Compile Include="Controllers\PBXesController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\QAReqsController.cs" />
+    <Compile Include="Controllers\RisksController.cs" />
+    <Compile Include="Controllers\SCVReqsController.cs" />
+    <Compile Include="Controllers\ServiceSpecificsController.cs" />
+    <Compile Include="Controllers\SignOffsController.cs" />
+    <Compile Include="Controllers\SMOReqsController.cs" />
+    <Compile Include="Controllers\SREReqsController.cs" />
+    <Compile Include="Controllers\SummariesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707180953112_projectmodified.cs" />
+    <Compile Include="Migrations\201707180953112_projectmodified.Designer.cs">
+      <DependentUpon>201707180953112_projectmodified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707181311112_summaryedits.cs" />
+    <Compile Include="Migrations\201707181311112_summaryedits.Designer.cs">
+      <DependentUpon>201707181311112_summaryedits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707181340212_allmodelsadapted.cs" />
+    <Compile Include="Migrations\201707181340212_allmodelsadapted.Designer.cs">
+      <DependentUpon>201707181340212_allmodelsadapted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppsSupportReqs.cs" />
     <Compile Include="Models\ChangeManagementReqs.cs" />
@@ -260,6 +290,91 @@
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\Summaries\Create.cshtml" />
+    <Content Include="Views\Summaries\Delete.cshtml" />
+    <Content Include="Views\Summaries\Details.cshtml" />
+    <Content Include="Views\Summaries\Edit.cshtml" />
+    <Content Include="Views\Summaries\Index.cshtml" />
+    <Content Include="Views\AppsSupportReqs\Create.cshtml" />
+    <Content Include="Views\AppsSupportReqs\Delete.cshtml" />
+    <Content Include="Views\AppsSupportReqs\Details.cshtml" />
+    <Content Include="Views\AppsSupportReqs\Edit.cshtml" />
+    <Content Include="Views\AppsSupportReqs\Index.cshtml" />
+    <Content Include="Views\ChangeManagementReqs\Create.cshtml" />
+    <Content Include="Views\ChangeManagementReqs\Delete.cshtml" />
+    <Content Include="Views\ChangeManagementReqs\Details.cshtml" />
+    <Content Include="Views\ChangeManagementReqs\Edit.cshtml" />
+    <Content Include="Views\ChangeManagementReqs\Index.cshtml" />
+    <Content Include="Views\DBAReqs\Create.cshtml" />
+    <Content Include="Views\DBAReqs\Delete.cshtml" />
+    <Content Include="Views\DBAReqs\Details.cshtml" />
+    <Content Include="Views\DBAReqs\Edit.cshtml" />
+    <Content Include="Views\DBAReqs\Index.cshtml" />
+    <Content Include="Views\EOCReqs\Create.cshtml" />
+    <Content Include="Views\EOCReqs\Delete.cshtml" />
+    <Content Include="Views\EOCReqs\Details.cshtml" />
+    <Content Include="Views\EOCReqs\Edit.cshtml" />
+    <Content Include="Views\EOCReqs\Index.cshtml" />
+    <Content Include="Views\GISReqs\Create.cshtml" />
+    <Content Include="Views\GISReqs\Delete.cshtml" />
+    <Content Include="Views\GISReqs\Details.cshtml" />
+    <Content Include="Views\GISReqs\Edit.cshtml" />
+    <Content Include="Views\GISReqs\Index.cshtml" />
+    <Content Include="Views\IAMReqs\Create.cshtml" />
+    <Content Include="Views\IAMReqs\Delete.cshtml" />
+    <Content Include="Views\IAMReqs\Details.cshtml" />
+    <Content Include="Views\IAMReqs\Edit.cshtml" />
+    <Content Include="Views\IAMReqs\Index.cshtml" />
+    <Content Include="Views\ITCS\Create.cshtml" />
+    <Content Include="Views\ITCS\Delete.cshtml" />
+    <Content Include="Views\ITCS\Details.cshtml" />
+    <Content Include="Views\ITCS\Edit.cshtml" />
+    <Content Include="Views\ITCS\Index.cshtml" />
+    <Content Include="Views\NEReqs\Create.cshtml" />
+    <Content Include="Views\NEReqs\Delete.cshtml" />
+    <Content Include="Views\NEReqs\Details.cshtml" />
+    <Content Include="Views\NEReqs\Edit.cshtml" />
+    <Content Include="Views\NEReqs\Index.cshtml" />
+    <Content Include="Views\PBXes\Create.cshtml" />
+    <Content Include="Views\PBXes\Delete.cshtml" />
+    <Content Include="Views\PBXes\Details.cshtml" />
+    <Content Include="Views\PBXes\Edit.cshtml" />
+    <Content Include="Views\PBXes\Index.cshtml" />
+    <Content Include="Views\QAReqs\Create.cshtml" />
+    <Content Include="Views\QAReqs\Delete.cshtml" />
+    <Content Include="Views\QAReqs\Details.cshtml" />
+    <Content Include="Views\QAReqs\Edit.cshtml" />
+    <Content Include="Views\QAReqs\Index.cshtml" />
+    <Content Include="Views\Risks\Create.cshtml" />
+    <Content Include="Views\Risks\Delete.cshtml" />
+    <Content Include="Views\Risks\Details.cshtml" />
+    <Content Include="Views\Risks\Edit.cshtml" />
+    <Content Include="Views\Risks\Index.cshtml" />
+    <Content Include="Views\SCVReqs\Create.cshtml" />
+    <Content Include="Views\SCVReqs\Delete.cshtml" />
+    <Content Include="Views\SCVReqs\Details.cshtml" />
+    <Content Include="Views\SCVReqs\Edit.cshtml" />
+    <Content Include="Views\SCVReqs\Index.cshtml" />
+    <Content Include="Views\ServiceSpecifics\Create.cshtml" />
+    <Content Include="Views\ServiceSpecifics\Delete.cshtml" />
+    <Content Include="Views\ServiceSpecifics\Details.cshtml" />
+    <Content Include="Views\ServiceSpecifics\Edit.cshtml" />
+    <Content Include="Views\ServiceSpecifics\Index.cshtml" />
+    <Content Include="Views\SignOffs\Create.cshtml" />
+    <Content Include="Views\SignOffs\Delete.cshtml" />
+    <Content Include="Views\SignOffs\Details.cshtml" />
+    <Content Include="Views\SignOffs\Edit.cshtml" />
+    <Content Include="Views\SignOffs\Index.cshtml" />
+    <Content Include="Views\SMOReqs\Create.cshtml" />
+    <Content Include="Views\SMOReqs\Delete.cshtml" />
+    <Content Include="Views\SMOReqs\Details.cshtml" />
+    <Content Include="Views\SMOReqs\Edit.cshtml" />
+    <Content Include="Views\SMOReqs\Index.cshtml" />
+    <Content Include="Views\SREReqs\Create.cshtml" />
+    <Content Include="Views\SREReqs\Delete.cshtml" />
+    <Content Include="Views\SREReqs\Details.cshtml" />
+    <Content Include="Views\SREReqs\Edit.cshtml" />
+    <Content Include="Views\SREReqs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +386,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707180953112_projectmodified.resx">
+      <DependentUpon>201707180953112_projectmodified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707181311112_summaryedits.resx">
+      <DependentUpon>201707181311112_summaryedits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707181340212_allmodelsadapted.resx">
+      <DependentUpon>201707181340212_allmodelsadapted.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

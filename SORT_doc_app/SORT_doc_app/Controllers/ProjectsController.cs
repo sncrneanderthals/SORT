@@ -47,64 +47,82 @@ namespace SORT_doc_app.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,UserID,AuthorName,Title,_Date")] Project project)
+        public ActionResult Create([Bind(Include = "ID,UserID,AuthorName,Title,Description,_Date,Open,SummaryDone,ServSpecDone,EOCDone,AppSupportDone,ChangeManDone,GISDone,NEDone,SCVDone,SREDone,DBADone,QADone,IAMDone,PBXDone,ITCSDone,SMODone,RisksDone,SignOffDone")] Project project)
         {
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
+                project.Open = true;
                 db.SaveChanges();
                 // when a new project is created, create all corresponding entities
                 AppsSupportReqs appsSupportReqs = new AppsSupportReqs();
                 appsSupportReqs.ProjectID = project.ID;
+                appsSupportReqs.ID = project.ID;
                 db.AppsSupportReqs.Add(appsSupportReqs);
                 ChangeManagementReqs changeManagementReqs = new ChangeManagementReqs();
                 changeManagementReqs.ProjectID = project.ID;
+                changeManagementReqs.ID = project.ID;
                 db.ChangeManagementReqs.Add(changeManagementReqs);
                 DBAReqs dbaReqs = new DBAReqs();
                 dbaReqs.ProjectID = project.ID;
+                dbaReqs.ID = project.ID;
                 db.DBAReqs.Add(dbaReqs);
                 EOCReqs eocReqs = new EOCReqs();
                 eocReqs.ProjectID = project.ID;
+                eocReqs.ID = project.ID;
                 db.EOCReqs.Add(eocReqs);
                 GISReqs gisReqs = new GISReqs();
                 gisReqs.ProjectID = project.ID;
+                gisReqs.ID = project.ID;
                 db.GISReqs.Add(gisReqs);
                 IAMReqs iamReqs = new IAMReqs();
                 iamReqs.ProjectID = project.ID;
+                iamReqs.ID = project.ID;
                 db.IAMReqs.Add(iamReqs);
                 ITCS itcs = new ITCS();
                 itcs.ProjectID = project.ID;
+                itcs.ID = project.ID;
                 db.ITCS.Add(itcs);
                 NEReqs neReqs = new NEReqs();
                 neReqs.ProjectID = project.ID;
+                neReqs.ID = project.ID;
                 db.NEReqs.Add(neReqs);
                 PBX pbx = new PBX();
                 pbx.ProjectID = project.ID;
+                pbx.ID = project.ID;
                 db.PBX.Add(pbx);
                 QAReqs qaReqs = new QAReqs();
                 qaReqs.ProjectID = project.ID;
+                qaReqs.ID = project.ID;
                 db.QAReqs.Add(qaReqs);
                 Risks risks = new Risks();
                 risks.ProjectID = project.ID;
+                risks.ID = project.ID;
                 db.Risks.Add(risks);
                 SCVReqs scvReqs = new SCVReqs();
                 scvReqs.ProjectID = project.ID;
+                scvReqs.ID = project.ID;
                 db.SCVReqs.Add(scvReqs);
                 ServiceSpecifics serviceSpecifics = new ServiceSpecifics();
                 serviceSpecifics.ProjectID = project.ID;
+                serviceSpecifics.ID = project.ID;
                 db.ServiceSpecifics.Add(serviceSpecifics);
                 SignOff signOff = new SignOff();
                 signOff.ProjectID = project.ID;
+                signOff.ID = project.ID;
                 db.SignOffs.Add(signOff);
                 SMOReqs smoReqs = new SMOReqs();
                 smoReqs.ProjectID = project.ID;
+                smoReqs.ID = project.ID;
                 db.SMOReqs.Add(smoReqs);
                 SREReqs sreReqs = new SREReqs();
                 sreReqs.ProjectID = project.ID;
+                sreReqs.ID = project.ID;
                 db.SREReqs.Add(sreReqs);
                 Summary summary = new Summary();
                 summary.ProjectID = project.ID;
-                db.Summaries.Add(summary); 
+                summary.ID = project.ID;
+                db.Summaries.Add(summary);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -132,7 +150,7 @@ namespace SORT_doc_app.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,UserID,AuthorName,Title,_Date")] Project project)
+        public ActionResult Edit([Bind(Include = "ID,UserID,AuthorName,Title,Description,_Date,Open,SummaryDone,ServSpecDone,EOCDone,AppSupportDone,ChangeManDone,GISDone,NEDone,SCVDone,SREDone,DBADone,QADone,IAMDone,PBXDone,ITCSDone,SMODone,RisksDone,SignOffDone")] Project project)
         {
             if (ModelState.IsValid)
             {

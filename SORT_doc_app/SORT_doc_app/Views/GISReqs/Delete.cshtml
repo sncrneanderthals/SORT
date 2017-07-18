@@ -1,0 +1,152 @@
+﻿@model SORT_doc_app.Models.GISReqs
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GISReqs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISQAPersonnel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISQAPersonnel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISArchReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISArchReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISSecInfra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISSecInfra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISVulnerabilityScan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISVulnerabilityScan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISEventTool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISEventTool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISIntrusionDetect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISIntrusionDetect)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISHardening)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISHardening)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISAdditional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISAdditional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISDataClassification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISDataClassification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISEncryption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISEncryption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISProcess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISProcess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISAccess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISAccess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISSourceAssure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISSourceAssure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISPenetration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISPenetration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GISComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GISComments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

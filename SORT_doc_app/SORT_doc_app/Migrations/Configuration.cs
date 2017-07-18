@@ -5,14 +5,15 @@ namespace SORT_doc_app.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SORT_doc_app.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SORT_doc_app.Context.SORT_doc_appContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            ContextKey = "SORT_doc_app.Context.SORT_doc_appContext";
         }
 
-        protected override void Seed(SORT_doc_app.Models.ApplicationDbContext context)
+        protected override void Seed(SORT_doc_app.Context.SORT_doc_appContext context)
         {
             //  This method will be called after migrating to the latest version.
 

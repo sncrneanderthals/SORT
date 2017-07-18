@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,7 @@ namespace SORT_doc_app.Models
         //probably did this wrong, needs to be checked
         public int ID { get; set; }
         public int ProjectID { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? SignOffDate { get; set; }
         public string SignOffPM { get; set; }
         public string SignOffSRE { get; set; }

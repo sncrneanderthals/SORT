@@ -13,6 +13,7 @@ namespace SORT_doc_app.Models
         [Display(Name = "Author")]
         public string AuthorName { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
         [Display(Name = "Created At")]
         private DateTime Date = DateTime.Now;
 
@@ -29,6 +30,7 @@ namespace SORT_doc_app.Models
             }
         }
 
+        public bool Open { get; set; }
         public bool SummaryDone { get; set; }
         public bool ServSpecDone { get; set; }
         public bool EOCDone { get; set; }

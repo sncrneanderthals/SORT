@@ -1,0 +1,120 @@
+﻿@model SORT_doc_app.Models.ServiceSpecifics
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ServiceSpecifics</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Links)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Links)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VPN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VPN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostPlatform)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostPlatform)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BackupRecovery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BackupRecovery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotesAndGrid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotesAndGrid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Changes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Changes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoLiveReqs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoLiveReqs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLAsSOW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLAsSOW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LicensingAndHardware)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LicensingAndHardware)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BCorDR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BCorDR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSComments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -12,7 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserID)
+            @*
+            @Html.DisplayNameFor(model => model.ID)
+                *@
+            Project Number
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AuthorName)
@@ -21,24 +24,157 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model._Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Open)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SummaryDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServSpecDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EOCDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppSupportDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangeManDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GISDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NEDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SCVDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SREDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DBADone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QADone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAMDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PBXDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCSDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SMODone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RisksDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOffDone)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>  
         <td>
             @Html.DisplayFor(modelItem => item.AuthorName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @*@Html.DisplayFor(modelItem => item.Title)*@
+            @Html.ActionLink(item.Title, "Details", new { id = item.ID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item._Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Open)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SummaryDone)
+            @Html.ActionLink("Summary", "Edit", "Summaries", new { id = item.ID}, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServSpecDone)
+            @Html.ActionLink("Service Specifics", "Edit", "ServiceSpecifics", new { id = item.ID}, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EOCDone)
+            @Html.ActionLink("EOC Requirements", "Edit", "EOCReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppSupportDone)
+            @Html.ActionLink("App Support Requirements", "Edit", "AppsSupportReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangeManDone)
+            @Html.ActionLink("Change Management", "Edit", "ChangeManagementReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GISDone)
+            @Html.ActionLink("GIS Requirements", "Edit", "GISReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NEDone)
+            @Html.ActionLink("NE Requirements", "Edit", "NEReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SCVDone)
+            @Html.ActionLink("SCV Requirements", "Edit", "SCVReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SREDone)
+            @Html.ActionLink("SRE Requirements", "Edit", "SREReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DBADone)
+            @Html.ActionLink("DBA Requirements", "Edit", "DBAReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QADone)
+            @Html.ActionLink("QA Requirements", "Edit", "QAReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAMDone)
+            @Html.ActionLink("IAM Requirements", "Edit", "IAMReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PBXDone)
+            @Html.ActionLink("PBX Requirements", "Edit", "PBXReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCSDone)
+            @Html.ActionLink("ITCS Requirements", "Edit", "ITCS", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SMODone)
+            @Html.ActionLink("SMO Requirements", "Edit", "SMOReqs", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RisksDone)
+            @Html.ActionLink("Risks Identified", "Edit", "Risks", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignOffDone)
+            @Html.ActionLink("Sign Off", "Edit", "SignOffs", new { id = item.ID }, null)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

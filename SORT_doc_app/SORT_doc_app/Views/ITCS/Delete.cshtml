@@ -1,0 +1,112 @@
+﻿@model SORT_doc_app.Models.ITCS
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ITCS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSContacts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSContacts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSDomains)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSDomains)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSSoftware)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSSoftware)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSBuying)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSBuying)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSEmailConfig)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSEmailConfig)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSInventory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSInventory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSListing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSListing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITCSComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITCSComments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
