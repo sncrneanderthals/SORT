@@ -21,6 +21,20 @@ namespace SORT_doc_app.Controllers
             return View(db.Projects.ToList());
         }
 
+        // filter projects by live SORT
+        public ActionResult Live()
+        {
+            var projects = db.Projects.Where(s => s.Open.Equals(true));
+            return View("Index", projects);
+        }
+
+        // filter projects by closed SORT
+        public ActionResult Closed()
+        {
+            var projects = db.Projects.Where(s => s.Open.Equals(false));
+            return View("Index", projects);
+        }
+
         // GET: Projects/Details/5
         public ActionResult Details(int? id)
         {

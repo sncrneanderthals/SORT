@@ -10,7 +10,8 @@ namespace SORT_doc_app.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            //return View();
+            return RedirectToAction("Index", "Projects");
         }
 
         public ActionResult About()
