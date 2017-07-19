@@ -16,9 +16,35 @@ namespace SORT_doc_app.Controllers
         private SORT_doc_appContext db = new SORT_doc_appContext();
 
         // GET: Projects
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Projects.ToList());
+         ViewBag.NumberSortParm = String.IsNullOrEmpty(sortOrder) ? "number_desc" : "";
+         ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+         ViewBag.TitleSortParm = sortOrder == "Name" ? "name_desc" : "Name";
+         var projects = from s in db.Projects
+                  select s;
+        switch (sortOrder)
+            {
+                case "number_desc":
+                    projects = projects.OrderByDescending(s => s.ID);
+                    break;
+                case "Name":
+                    projects = projects.OrderBy(s => s.Title);
+                    break;
+                case "name_desc":
+                    projects = projects.OrderByDescending(s => s.Title);
+                    break;
+                case "Date":
+                    projects = projects.OrderBy(s => s._Date);
+                    break;
+                case "date_desc":
+                    projects = projects.OrderByDescending(s => s._Date);
+                    break;
+                default:
+                    projects = projects.OrderBy(s => s.ID);
+                    break;
+            }
+            return View(projects.ToList());
         }
 
         // filter projects by live SORT

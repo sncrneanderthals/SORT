@@ -23,19 +23,22 @@
             @*
             @Html.DisplayNameFor(model => model.ID)
                 *@
-            Project Number
+            @Html.ActionLink("Project Number", "Index", new { sortOrder = ViewBag.NumberSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AuthorName)
         </th>
         <th>
+            @*
             @Html.DisplayNameFor(model => model.Title)
+                *@
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model._Date)
+            @Html.ActionLink("Date Created", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Open)

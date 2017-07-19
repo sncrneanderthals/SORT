@@ -30,6 +30,7 @@ namespace SORT_doc_app.Models
         [Display(Name = "PCI or SOX application?")]
         [DataType(DataType.MultilineText)]
         public string PCISOX { get; set; }
+        [DataType(DataType.Date)]
         [Display(Name = "Go Live Date(s)")]
         public DateTime? GoLiveDate { get; set; }
         [Display(Name = "Primary Architecture Tech Leads and Teams")]

@@ -14,9 +14,12 @@ namespace SORT_doc_app.Models
         public string AuthorName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
+        [DataType(DataType.Date)]
         [Display(Name = "Created At")]
         private DateTime Date = DateTime.Now;
 
+        [DataType(DataType.Date)]
         [Display(Name = "Created At")]
         public DateTime _Date
         {
