@@ -89,7 +89,7 @@ namespace SORT_doc_app.Controllers
             {
                 db.Entry(appsSupportReqs).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", appsSupportReqs);
             }
             ViewBag.ProjectID = new SelectList(db.Projects, "ID", "UserID", appsSupportReqs.ProjectID);
             return View(appsSupportReqs);

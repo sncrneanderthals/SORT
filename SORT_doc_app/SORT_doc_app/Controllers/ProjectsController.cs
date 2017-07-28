@@ -137,6 +137,10 @@ namespace SORT_doc_app.Controllers
                 db.QAReqs.Add(qaReqs);
                 Risks risks = new Risks();
                 risks.ProjectID = project.ID;
+                // dates set to +1 month in the future
+                // this is done to avoid null dates
+                risks.RisksWarrantyDate = DateTime.Now.AddMonths(1);
+                risks.RisksPreDate = DateTime.Now.AddMonths(1);
                 risks.ID = project.ID;
                 db.Risks.Add(risks);
                 SCVReqs scvReqs = new SCVReqs();
@@ -149,6 +153,9 @@ namespace SORT_doc_app.Controllers
                 db.ServiceSpecifics.Add(serviceSpecifics);
                 SignOff signOff = new SignOff();
                 signOff.ProjectID = project.ID;
+                // signoff date set to +1 month in the future
+                // this is done to avoid null dates
+                signOff.SignOffDate = DateTime.Now.AddMonths(1);
                 signOff.ID = project.ID;
                 db.SignOffs.Add(signOff);
                 SMOReqs smoReqs = new SMOReqs();
@@ -162,6 +169,9 @@ namespace SORT_doc_app.Controllers
                 Summary summary = new Summary();
                 summary.ProjectID = project.ID;
                 summary.ID = project.ID;
+                // default go live date set to +1 month in the future
+                // this is done to avoid null dates
+                summary.GoLiveDate = DateTime.Now.AddMonths(1);
                 db.Summaries.Add(summary);
                 db.SaveChanges();
                 return RedirectToAction("Index");

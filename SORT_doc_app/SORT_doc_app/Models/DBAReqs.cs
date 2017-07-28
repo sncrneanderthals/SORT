@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace SORT_doc_app.Models
     public class DBAReqs
     {
         public int ID { get; set; }
+        [ForeignKey("Project")]
         public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string DBAYesNo { get; set; }

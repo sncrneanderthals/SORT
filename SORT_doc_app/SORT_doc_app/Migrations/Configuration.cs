@@ -10,7 +10,6 @@ namespace SORT_doc_app.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "SORT_doc_app.Context.SORT_doc_appContext";
         }
 
         protected override void Seed(SORT_doc_app.Context.SORT_doc_appContext context)

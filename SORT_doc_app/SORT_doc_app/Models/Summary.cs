@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SORT_doc_app.Models
 {
     public class Summary
     {
         public int ID { get; set; }
+        [ForeignKey("Project")]
         public int ProjectID { get; set; }
         [Display(Name = "Service Name (include also any Project names)")]
         [DataType(DataType.MultilineText)]
@@ -32,7 +34,7 @@ namespace SORT_doc_app.Models
         public string PCISOX { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Go Live Date(s)")]
-        public DateTime? GoLiveDate { get; set; }
+        public DateTime GoLiveDate { get; set; }
         [Display(Name = "Primary Architecture Tech Leads and Teams")]
         [DataType(DataType.MultilineText)]
         public string ArchLeadTeams { get; set; }

@@ -202,10 +202,8 @@ C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\bin\Micros
 C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.dll
 C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.pdb
-C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.projectmodified.resources
+C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.nonulldatesummary.resources
 C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.csproj.GenerateResource.Cache
-C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.summaryedits.resources
-C:\Users\User\Desktop\sncr_neanderthalsrepo\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.allmodelsadapted.resources

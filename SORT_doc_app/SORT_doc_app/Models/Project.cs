@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SORT_doc_app.Models
 {
     public class Project
     {
+        [Key]
         public int ID { get; set; }
         public string UserID { get; set; }
         [Display(Name = "Author")]
