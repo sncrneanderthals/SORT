@@ -18,14 +18,22 @@ namespace SORT_doc_app.Controllers
         private SORT_doc_appContext db = new SORT_doc_appContext();
 
         // GET: Projects
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
-         ViewBag.NumberSortParm = String.IsNullOrEmpty(sortOrder) ? "number_desc" : "";
-         ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-         ViewBag.TitleSortParm = sortOrder == "Name" ? "name_desc" : "Name";
+
          var projects = from s in db.Projects
                   select s;
-        switch (sortOrder)
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                projects = projects.Where(s => s.Title.Contains(searchString));
+            }
+
+            ViewBag.NumberSortParm = String.IsNullOrEmpty(sortOrder) ? "number_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.TitleSortParm = sortOrder == "Name" ? "name_desc" : "Name";
+
+            switch (sortOrder)
             {
                 case "number_desc":
                     projects = projects.OrderByDescending(s => s.ID);
