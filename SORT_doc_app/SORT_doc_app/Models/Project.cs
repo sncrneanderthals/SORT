@@ -19,10 +19,12 @@ namespace SORT_doc_app.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Created At")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         private DateTime Date = DateTime.Now;
 
         [DataType(DataType.Date)]
         [Display(Name = "Created At")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime _Date
         {
             get
@@ -34,6 +36,11 @@ namespace SORT_doc_app.Models
                 Date = value;
             }
         }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Projected Go Live Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime GoLiveDate { get; set; }
 
         public bool Open { get; set; }
         public bool SummaryDone { get; set; }

@@ -96,6 +96,7 @@ namespace SORT_doc_app.Controllers
                 var project = db.Projects.Find(eOCReqs.ProjectID);
                 newEvent.ProjectID = project.ID;
                 newEvent.EventBody = "EOC Requirements section of SORT Project \"" + project.Title + "\" with Number " + project.ID + " has been edited by " + user;
+                newEvent.EventType = "Edit";
                 db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");

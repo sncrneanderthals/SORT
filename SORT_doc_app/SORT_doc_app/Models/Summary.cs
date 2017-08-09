@@ -34,6 +34,7 @@ namespace SORT_doc_app.Models
         public string PCISOX { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Go Live Date(s)")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime GoLiveDate { get; set; }
         [Display(Name = "Primary Architecture Tech Leads and Teams")]
         [DataType(DataType.MultilineText)]

@@ -6,7 +6,9 @@
 
 <h2>Details</h2>
 
-Service Operational Readiness Transition document @Model.ID 
+<p>Service Operational Readiness Transition Document @Model.ID </p>
+
+@Html.ActionLink("View Document History", "DocHistory", new { id = @Model.ID })
 
 <div>
     <h4>Project</h4>
@@ -67,6 +69,14 @@ Service Operational Readiness Transition document @Model.ID
 
         <dd>
             @Html.DisplayFor(model => model.Open)
+        </dd>
+
+        <dt>
+            Days Until Go Live Date
+        </dt>
+
+        <dd>
+            @ViewBag.timeRemaining
         </dd>
 
         <dt>

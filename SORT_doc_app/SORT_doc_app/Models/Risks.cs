@@ -19,6 +19,7 @@ namespace SORT_doc_app.Models
         [DataType(DataType.MultilineText)]
         public string RisksPreOwner { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? RisksPreDate { get; set; }
         [DataType(DataType.MultilineText)]
         public string RisksWarrantyPlan { get; set; }
@@ -27,6 +28,7 @@ namespace SORT_doc_app.Models
         [DataType(DataType.MultilineText)]
         public string RisksWarrantyOwner { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? RisksWarrantyDate { get; set; }
         [DataType(DataType.MultilineText)]
         public string RisksComments { get; set; }

@@ -25,6 +25,7 @@ namespace SORT_doc_app.Models
         }
         public int ID { get; set; }
         public int ProjectID { get; set; }
+        public string EventType { get; set; }
         [Required(ErrorMessage = "Please Enter a Comment Text")]
         [StringLength(160)]
         [DataType(DataType.MultilineText)]

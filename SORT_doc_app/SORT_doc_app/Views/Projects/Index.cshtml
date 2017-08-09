@@ -6,200 +6,218 @@
 
 <h2>SORT Documents</h2>
 
-@using (Html.BeginForm("Index", "Projects", FormMethod.Get))
-{
-    <p style="float:right">
-        @Html.TextBox("SearchString", "Search", htmlAttributes: new { style = " height:35px;",  }) <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+
+    @using (Html.BeginForm("Index", "Projects", FormMethod.Get))
+    {
+        <p style="float:right">
+            @Html.TextBox("SearchString", "", htmlAttributes: new { placeholder = "Search", style = " padding-left: 5px; height:37px; border: 1px solid #DFE1E3; border-radius: 5px;", }) <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </p>
+    }
+
+<div class="col-md-8">
+    <p>
+        @Html.ActionLink("Create New SORT Document", "Create")
     </p>
-}
 
+    <p>
+        @Html.ActionLink("Live SORT Documents", "Live")
+    </p>
 
-<p>
-    @Html.ActionLink("Create New SORT Document", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Closed SORT Documents", "Closed")
+    </p>
+</div>
 
-<p>
-    @Html.ActionLink("Live SORT Documents", "Live")
-</p>
+@*
+    <div class="col-md-4">
+        <br />
+        @Html.Partial("_history")
+    </div>
+    *@
 
-<p>
-    @Html.ActionLink("Closed SORT Documents", "Closed")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @*
-            @Html.DisplayNameFor(model => model.ID)
+    <table class="table">
+        <tr>
+            <th>
+                @*
+                    @Html.DisplayNameFor(model => model.ID)
                 *@
-            @Html.ActionLink("Project Number", "Index", new { sortOrder = ViewBag.NumberSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorName)
-        </th>
-        <th>
-            @*
-            @Html.DisplayNameFor(model => model.Title)
+                @Html.ActionLink("Project Number", "Index", new { sortOrder = ViewBag.NumberSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th>
+                @*
+                    @Html.DisplayNameFor(model => model.Title)
                 *@
-            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.ActionLink("Date Created", "Index", new { sortOrder = ViewBag.DateSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Open)
-        </th>
-        <th>
-            Service Summary
-        </th>
-        <th>
-            Service Specifics
-        </th>
-        <th>
-            EOC Requirements 
-        </th>
-        <th>
-            Apps Support Requirements
-        </th>
-        <th>
-            Change Management Requirements
-        </th>
-        <th>
-            GIS Requirements
-        </th>
-        <th>
-            NE Requirements
-        </th>
-        <th>
-            SCV Requirements
-        </th>
-        <th>
-            SRE Requirements
-        </th>
-        <th>
-            DBA Requirements
-        </th>
-        <th>
-            QA & Test Requirements
-        </th>
-        <th>
-            IAM Requirements
-        </th>
-        <th>
-            PBX / Telephony Requirements
-        </th>
-        <th>
-            ITCS Requirements
-        </th>
-        <th>
-            SMO Requirements
-        </th>
-        <th>
-            Risks Identified / Oustanding
-        </th>
-        <th>
-            Sign Off
-        </th>
-        <th></th>
-    </tr>
+                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.ActionLink("Date Created", "Index", new { sortOrder = ViewBag.DateSortParm })
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.ID)
-        </td>  
-        <td>
-            @Html.DisplayFor(modelItem => item.AuthorName)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Title)*@
-            @Html.ActionLink(item.Title, "Details", new { id = item.ID })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item._Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Open)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SummaryDone)
-            @Html.ActionLink("Summary", "Edit", "Summaries", new { id = item.ID}, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServSpecDone)
-            @Html.ActionLink("Service Specifics", "Edit", "ServiceSpecifics", new { id = item.ID}, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EOCDone)
-            @Html.ActionLink("EOC Requirements", "Edit", "EOCReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AppSupportDone)
-            @Html.ActionLink("App Support Requirements", "Edit", "AppsSupportReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChangeManDone)
-            @Html.ActionLink("Change Management", "Edit", "ChangeManagementReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GISDone)
-            @Html.ActionLink("GIS Requirements", "Edit", "GISReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NEDone)
-            @Html.ActionLink("NE Requirements", "Edit", "NEReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SCVDone)
-            @Html.ActionLink("SCV Requirements", "Edit", "SCVReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SREDone)
-            @Html.ActionLink("SRE Requirements", "Edit", "SREReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DBADone)
-            @Html.ActionLink("DBA Requirements", "Edit", "DBAReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QADone)
-            @Html.ActionLink("QA Requirements", "Edit", "QAReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IAMDone)
-            @Html.ActionLink("IAM Requirements", "Edit", "IAMReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PBXDone)
-            @Html.ActionLink("PBX Requirements", "Edit", "PBX", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ITCSDone)
-            @Html.ActionLink("ITCS Requirements", "Edit", "ITCS", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SMODone)
-            @Html.ActionLink("SMO Requirements", "Edit", "SMOReqs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RisksDone)
-            @Html.ActionLink("Risks Identified", "Edit", "Risks", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SignOffDone)
-            @Html.ActionLink("Sign Off", "Edit", "SignOffs", new { id = item.ID }, null)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+            <th>
+                @Html.ActionLink("GoLiveDate", "Index", new { sortOrder = ViewBag.GoLiveSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Open)
+            </th>
+            <th>
+                Service Summary
+            </th>
+            <th>
+                Service Specifics
+            </th>
+            <th>
+                EOC Requirements
+            </th>
+            <th>
+                Apps Support Requirements
+            </th>
+            <th>
+                Change Management Requirements
+            </th>
+            <th>
+                GIS Requirements
+            </th>
+            <th>
+                NE Requirements
+            </th>
+            <th>
+                SCV Requirements
+            </th>
+            <th>
+                SRE Requirements
+            </th>
+            <th>
+                DBA Requirements
+            </th>
+            <th>
+                QA & Test Requirements
+            </th>
+            <th>
+                IAM Requirements
+            </th>
+            <th>
+                PBX / Telephony Requirements
+            </th>
+            <th>
+                ITCS Requirements
+            </th>
+            <th>
+                SMO Requirements
+            </th>
+            <th>
+                Risks Identified / Oustanding
+            </th>
+            <th>
+                Sign Off
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Title)*@
+                    @Html.ActionLink(item.Title, "Details", new { id = item.ID })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item._Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoLiveDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Open)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SummaryDone)
+                    @Html.ActionLink("Summary", "Edit", "Summaries", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServSpecDone)
+                    @Html.ActionLink("Service Specifics", "Edit", "ServiceSpecifics", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EOCDone)
+                    @Html.ActionLink("EOC Requirements", "Edit", "EOCReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppSupportDone)
+                    @Html.ActionLink("App Support Requirements", "Edit", "AppsSupportReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChangeManDone)
+                    @Html.ActionLink("Change Management", "Edit", "ChangeManagementReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GISDone)
+                    @Html.ActionLink("GIS Requirements", "Edit", "GISReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NEDone)
+                    @Html.ActionLink("NE Requirements", "Edit", "NEReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SCVDone)
+                    @Html.ActionLink("SCV Requirements", "Edit", "SCVReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SREDone)
+                    @Html.ActionLink("SRE Requirements", "Edit", "SREReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DBADone)
+                    @Html.ActionLink("DBA Requirements", "Edit", "DBAReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QADone)
+                    @Html.ActionLink("QA Requirements", "Edit", "QAReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IAMDone)
+                    @Html.ActionLink("IAM Requirements", "Edit", "IAMReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PBXDone)
+                    @Html.ActionLink("PBX Requirements", "Edit", "PBX", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ITCSDone)
+                    @Html.ActionLink("ITCS Requirements", "Edit", "ITCS", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SMODone)
+                    @Html.ActionLink("SMO Requirements", "Edit", "SMOReqs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RisksDone)
+                    @Html.ActionLink("Risks Identified", "Edit", "Risks", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SignOffDone)
+                    @Html.ActionLink("Sign Off", "Edit", "SignOffs", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>

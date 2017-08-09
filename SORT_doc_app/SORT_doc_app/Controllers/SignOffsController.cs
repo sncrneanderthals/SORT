@@ -96,6 +96,7 @@ namespace SORT_doc_app.Controllers
                 var project = db.Projects.Find(signOff.ProjectID);
                 newEvent.ProjectID = project.ID;
                 newEvent.EventBody = "Sign Off Post Warranty Phase section of SORT Project \"" + project.Title + "\" with Number " + project.ID + " has been edited by " + user;
+                newEvent.EventType = "Edit";
                 db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Details", signOff);

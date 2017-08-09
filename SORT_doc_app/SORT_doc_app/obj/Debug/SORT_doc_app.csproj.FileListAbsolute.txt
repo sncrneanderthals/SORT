@@ -353,3 +353,5 @@ C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migratio
 C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.csproj.GenerateResource.Cache
 C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.dll
 C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.pdb
+C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.eventtype.resources
+C:\Users\Nihil\Desktop\SORT_doc_app\SORT_doc_app\obj\Debug\SORT_doc_app.Migrations.datestuff.resources

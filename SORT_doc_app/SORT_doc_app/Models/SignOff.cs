@@ -14,6 +14,7 @@ namespace SORT_doc_app.Models
         [ForeignKey("Project")]
         public int ProjectID { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? SignOffDate { get; set; }
         public string SignOffPM { get; set; }
         public string SignOffSRE { get; set; }

@@ -96,6 +96,7 @@ namespace SORT_doc_app.Controllers
                 var project = db.Projects.Find(risks.ProjectID);
                 newEvent.ProjectID = project.ID;
                 newEvent.EventBody = "Risks Identified section of SORT Project \"" + project.Title + "\" with Number " + project.ID + " has been edited by " + user;
+                newEvent.EventType = "Edit";
                 db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Details", risks);

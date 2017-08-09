@@ -29,20 +29,27 @@ namespace SORT_doc_app.Controllers
                 projects = projects.Where(s => s.Title.Contains(searchString));
             }
 
-            ViewBag.NumberSortParm = String.IsNullOrEmpty(sortOrder) ? "number_desc" : "";
+            ViewBag.NumberSortParm = String.IsNullOrEmpty(sortOrder) ? "number_asc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.GoLiveSortParm = sortOrder == "GoLive" ? "golive_desc" : "GoLive";
             ViewBag.TitleSortParm = sortOrder == "Name" ? "name_desc" : "Name";
 
             switch (sortOrder)
             {
-                case "number_desc":
-                    projects = projects.OrderByDescending(s => s.ID);
+                case "number_asc":
+                    projects = projects.OrderBy(s => s.ID);
                     break;
                 case "Name":
                     projects = projects.OrderBy(s => s.Title);
                     break;
                 case "name_desc":
                     projects = projects.OrderByDescending(s => s.Title);
+                    break;
+                case "GoLive":
+                    projects = projects.OrderBy(s => s.GoLiveDate);
+                    break;
+                case "golive_desc":
+                    projects = projects.OrderByDescending(s => s.GoLiveDate);
                     break;
                 case "Date":
                     projects = projects.OrderBy(s => s._Date);
@@ -51,9 +58,11 @@ namespace SORT_doc_app.Controllers
                     projects = projects.OrderByDescending(s => s._Date);
                     break;
                 default:
-                    projects = projects.OrderBy(s => s.ID);
+                    projects = projects.OrderByDescending(s => s.ID);
                     break;
             }
+            // grab 10 latest history events
+            ViewBag.Events = db.Events.OrderByDescending(t => t._Date).Take(10);
             return View(projects.ToList());
         }
 
@@ -97,6 +106,9 @@ namespace SORT_doc_app.Controllers
                 }
             }
 
+            DateTime goLive = project.GoLiveDate;
+            ViewBag.timeRemaining = (goLive - DateTime.Now).Days;//doesn't give correct answer sadly 
+
             return View(project);
         }
 
@@ -111,12 +123,16 @@ namespace SORT_doc_app.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,UserID,AuthorName,Title,Description,_Date,Open,SummaryDone,ServSpecDone,EOCDone,AppSupportDone,ChangeManDone,GISDone,NEDone,SCVDone,SREDone,DBADone,QADone,IAMDone,PBXDone,ITCSDone,SMODone,RisksDone,SignOffDone")] Project project)
+        public ActionResult Create([Bind(Include = "ID,UserID,AuthorName,Title,Description,_Date,Open,GoLiveDate,SummaryDone,ServSpecDone,EOCDone,AppSupportDone,ChangeManDone,GISDone,NEDone,SCVDone,SREDone,DBADone,QADone,IAMDone,PBXDone,ITCSDone,SMODone,RisksDone,SignOffDone")] Project project)
         {
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
                 project.Open = true;
+                var user = User.Identity.GetUserName();
+                if (user == "") user = "Guest User";
+                project.UserID = user;
+                project.AuthorName = user;
                 db.SaveChanges();
                 // when a new project is created, create all corresponding entities
                 AppsSupportReqs appsSupportReqs = new AppsSupportReqs();
@@ -161,10 +177,8 @@ namespace SORT_doc_app.Controllers
                 db.QAReqs.Add(qaReqs);
                 Risks risks = new Risks();
                 risks.ProjectID = project.ID;
-                // dates set to +1 month in the future
-                // this is done to avoid null dates
-                risks.RisksWarrantyDate = DateTime.Now.AddMonths(1);
-                risks.RisksPreDate = DateTime.Now.AddMonths(1);
+                risks.RisksWarrantyDate = project.GoLiveDate;
+                risks.RisksPreDate = project.GoLiveDate;
                 risks.ID = project.ID;
                 db.Risks.Add(risks);
                 SCVReqs scvReqs = new SCVReqs();
@@ -177,9 +191,7 @@ namespace SORT_doc_app.Controllers
                 db.ServiceSpecifics.Add(serviceSpecifics);
                 SignOff signOff = new SignOff();
                 signOff.ProjectID = project.ID;
-                // signoff date set to +1 month in the future
-                // this is done to avoid null dates
-                signOff.SignOffDate = DateTime.Now.AddMonths(1);
+                signOff.SignOffDate = project.GoLiveDate;
                 signOff.ID = project.ID;
                 db.SignOffs.Add(signOff);
                 SMOReqs smoReqs = new SMOReqs();
@@ -193,14 +205,13 @@ namespace SORT_doc_app.Controllers
                 Summary summary = new Summary();
                 summary.ProjectID = project.ID;
                 summary.ID = project.ID;
-                // default go live date set to +1 month in the future
-                // this is done to avoid null dates
-                summary.GoLiveDate = DateTime.Now.AddMonths(1);
+                summary.GoLiveDate = project.GoLiveDate;
                 db.Summaries.Add(summary);
                 //generate history event recording project creation
                 Event newEvent = new Event();
                 newEvent.ProjectID = project.ID;
                 newEvent.EventBody = "New SORT Project \"" + project.Title + "\" with Number " + project.ID + " created by " + project.AuthorName;
+                newEvent.EventType = "New Project";
                 db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -229,7 +240,7 @@ namespace SORT_doc_app.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,UserID,AuthorName,Title,Description,_Date,Open,SummaryDone,ServSpecDone,EOCDone,AppSupportDone,ChangeManDone,GISDone,NEDone,SCVDone,SREDone,DBADone,QADone,IAMDone,PBXDone,ITCSDone,SMODone,RisksDone,SignOffDone")] Project project)
+        public ActionResult Edit([Bind(Include = "ID,UserID,AuthorName,Title,Description,_Date,GoLiveDate,Open,SummaryDone,ServSpecDone,EOCDone,AppSupportDone,ChangeManDone,GISDone,NEDone,SCVDone,SREDone,DBADone,QADone,IAMDone,PBXDone,ITCSDone,SMODone,RisksDone,SignOffDone")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -238,6 +249,7 @@ namespace SORT_doc_app.Controllers
                 Event newEvent = new Event();
                 newEvent.ProjectID = project.ID;
                 newEvent.EventBody = "SORT Project \"" + project.Title + "\" with Number " + project.ID + " was edited by " + project.AuthorName;
+                newEvent.EventType = "Edit";
                 db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -474,6 +486,7 @@ namespace SORT_doc_app.Controllers
             Event newEvent = new Event();
             newEvent.ProjectID = project.ID;
             newEvent.EventBody = assignedSectionName + " section of SORT Project \"" + project.Title + "\" with Number " + project.ID + " has been assigned to " + assignee;
+            newEvent.EventType = "Assignment";
             db.Events.Add(newEvent);
             db.SaveChanges();
             return RedirectToAction("Details",project);
@@ -588,10 +601,36 @@ namespace SORT_doc_app.Controllers
             Event newEvent = new Event();
             newEvent.ProjectID = project.ID;
             newEvent.EventBody = sectionTitle + " section of SORT Project \"" + project.Title + "\" with Number " + project.ID + " has been approved by " + user;
+            newEvent.EventType = "Approval";
             db.Events.Add(newEvent);
             db.SaveChanges();
             return RedirectToAction("Details", project);
 
+        }
+
+        public ActionResult DocHistory(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project project = db.Projects.Find(id);
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+
+            var events = db.Events.Where(t => t.ProjectID.Equals(project.ID));
+            //ViewBag.Events = events.OrderByDescending(t => t._Date).Take(1000);
+            ViewData.Add("Events", events);
+            return View(project);
+        }
+
+        public ActionResult EventHistory()
+        {
+            // grab 10 latest history events
+            ViewBag.Events = db.Events.OrderByDescending(t => t._Date).Take(10);
+            return View();
         }
 
         protected override void Dispose(bool disposing)

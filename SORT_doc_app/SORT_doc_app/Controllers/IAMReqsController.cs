@@ -97,6 +97,7 @@ namespace SORT_doc_app.Controllers
                 var project = db.Projects.Find(iAMReqs.ProjectID);
                 newEvent.ProjectID = project.ID;
                 newEvent.EventBody = "IAM Requirements section of SORT Project \"" + project.Title + "\" with Number " + project.ID + " has been edited by " + user;
+                newEvent.EventType = "Edit";
                 db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Details", iAMReqs);
