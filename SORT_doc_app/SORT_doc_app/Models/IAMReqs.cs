@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class IAMReqs
+    public class IAMReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string IAMContacts { get; set; }
         [DataType(DataType.MultilineText)]
@@ -34,7 +31,5 @@ namespace SORT_doc_app.Models
         public string IAMPermission { get; set; }
         [DataType(DataType.MultilineText)]
         public string IAMComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

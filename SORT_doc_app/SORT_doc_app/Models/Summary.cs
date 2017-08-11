@@ -7,11 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SORT_doc_app.Models
 {
-    public class Summary
+    public class Summary : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [Display(Name = "Service Name (include also any Project names)")]
         [DataType(DataType.MultilineText)]
         public string ServiceName { get; set; }
@@ -44,7 +41,5 @@ namespace SORT_doc_app.Models
         public string SupportTeams { get; set; }
         [DataType(DataType.MultilineText)]
         public string SummaryComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

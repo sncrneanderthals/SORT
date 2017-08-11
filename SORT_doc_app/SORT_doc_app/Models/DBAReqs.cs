@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class DBAReqs
+    public class DBAReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string DBAYesNo { get; set; }
         [DataType(DataType.MultilineText)]
@@ -60,7 +57,5 @@ namespace SORT_doc_app.Models
         public string DBARetentionReqs { get; set; }
         [DataType(DataType.MultilineText)]
         public string DBAComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

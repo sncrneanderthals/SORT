@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class SCVReqs
+    public class SCVReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string SCVYesNo { get; set; }
         [DataType(DataType.MultilineText)]
@@ -36,7 +33,5 @@ namespace SORT_doc_app.Models
         public string SCVTraining { get; set; }
         [DataType(DataType.MultilineText)]
         public string SCVComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

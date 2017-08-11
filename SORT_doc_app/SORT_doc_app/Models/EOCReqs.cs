@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class EOCReqs
+    public class EOCReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string EOCContacts { get; set; }
         [DataType(DataType.MultilineText)]
@@ -38,6 +35,5 @@ namespace SORT_doc_app.Models
         public string EOCExceptions { get; set; }
         [DataType(DataType.MultilineText)]
         public string EOCComments { get; set; }
-        public virtual Project Project { get; set; }
     }
 }

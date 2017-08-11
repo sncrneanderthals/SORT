@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class NEReqs
+    public class NEReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string NEYesNo { get; set; }
         [DataType(DataType.MultilineText)]
@@ -54,7 +51,5 @@ namespace SORT_doc_app.Models
         public string NEEnvironment { get; set; }
         [DataType(DataType.MultilineText)]
         public string NEComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

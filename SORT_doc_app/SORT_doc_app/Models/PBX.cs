@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class PBX
+    public class PBX : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string PBXContacts { get; set; }
         [DataType(DataType.MultilineText)]
@@ -34,8 +31,5 @@ namespace SORT_doc_app.Models
         public string PBXDSCIMSA { get; set; }
         [DataType(DataType.MultilineText)]
         public string PBXComments { get; set; }
-
-        public virtual Project Project { get; set; }
-
     }
 }

@@ -7,12 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class SignOff
+    public class SignOff : BaseDocumentModel
     {
-        //probably did this wrong, needs to be checked
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? SignOffDate { get; set; }
@@ -23,7 +19,5 @@ namespace SORT_doc_app.Models
         public string SignOffSupport { get; set; }
         public string SignOffCCT { get; set; }
         public string SignOffSDM { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

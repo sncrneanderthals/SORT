@@ -170,6 +170,7 @@
     <Compile Include="Context\SORT_doc_appContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppsSupportReqsController.cs" />
+    <Compile Include="Controllers\BaseDocumentController.cs" />
     <Compile Include="Controllers\ChangeManagementReqsController.cs" />
     <Compile Include="Controllers\DBAReqsController.cs" />
     <Compile Include="Controllers\EOCReqsController.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppsSupportReqs.cs" />
     <Compile Include="Models\Assignment.cs" />
+    <Compile Include="Models\BaseDocumentModel.cs" />
     <Compile Include="Models\ChangeManagementReqs.cs" />
     <Compile Include="Models\DBAReqs.cs" />
     <Compile Include="Models\EOCReqs.cs" />
@@ -361,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BaseDocument\" />
     <Folder Include="Views\Events\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>

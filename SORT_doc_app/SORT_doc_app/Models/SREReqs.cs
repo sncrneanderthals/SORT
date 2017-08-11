@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class SREReqs
+    public class SREReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string SREYesNo { get; set; }
         [DataType(DataType.MultilineText)]
@@ -20,8 +17,5 @@ namespace SORT_doc_app.Models
         public string SREDocument{ get; set; }
         [DataType(DataType.MultilineText)]
         public string SREPasswords { get; set; }
-
-        public virtual Project Project { get; set; }
-
     }
 }

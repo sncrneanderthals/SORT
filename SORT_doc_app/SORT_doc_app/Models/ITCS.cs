@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class ITCS
+    public class ITCS : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string ITCSContacts { get; set; }
         [DataType(DataType.MultilineText)]
@@ -32,7 +29,5 @@ namespace SORT_doc_app.Models
         public string ITCSListing { get; set; }
         [DataType(DataType.MultilineText)]
         public string ITCSComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }

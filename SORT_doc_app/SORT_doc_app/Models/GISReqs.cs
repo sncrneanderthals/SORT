@@ -7,11 +7,8 @@ using System.Web;
 
 namespace SORT_doc_app.Models
 {
-    public class GISReqs
+    public class GISReqs : BaseDocumentModel
     {
-        public int ID { get; set; }
-        [ForeignKey("Project")]
-        public int ProjectID { get; set; }
         [DataType(DataType.MultilineText)]
         public string GISQAPersonnel { get; set; }
         [DataType(DataType.MultilineText)]
@@ -43,7 +40,5 @@ namespace SORT_doc_app.Models
         public string GISPenetration { get; set; }
         [DataType(DataType.MultilineText)]
         public string GISComments { get; set; }
-
-        public virtual Project Project { get; set; }
     }
 }
